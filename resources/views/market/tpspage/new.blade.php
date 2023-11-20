@@ -55,7 +55,7 @@
         <section class="sec-3">
           <div class="row sec-3-col m-lg-5 p-2">
             <div class="col-lg-5 col-md-5 col-sm-5 sec-3-col-1">
-              <img src="./assets/images/image.svg" alt="" width="90%">
+              <img src="public/assets/images/author/author-img1.jpg" alt="" width="90%">
             </div>
             <div class="col-lg-7 col-md-7 col-sm-7 mt-lg-5 ps-3">
               <h3 class="fw-bolder sec-3-header">Details of the ask</h3>

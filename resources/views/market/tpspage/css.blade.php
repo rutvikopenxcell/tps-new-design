@@ -31,7 +31,7 @@ input[type=number] {
 }
 
 .sec-1 {
-    background-image: url(../../../../public/assets/asset/images/img-01.png);
+    background-image: url(public/assets/images/tps/image.webp);
     background-size:cover;
     background-position: center;
     background-repeat: no-repeat;
