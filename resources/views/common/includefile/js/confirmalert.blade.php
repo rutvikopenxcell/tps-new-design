@@ -1,0 +1,1 @@
+ <script src="{{ asset('public/assets/jquery-confirm/js/jquery-confirm.js')}}"></script>

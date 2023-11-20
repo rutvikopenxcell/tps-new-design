@@ -1,0 +1,1 @@
+<link href="{{ asset('public/assets/css/plugins/toastr/toastr.min.css')}}" rel="stylesheet">

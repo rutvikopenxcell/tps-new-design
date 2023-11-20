@@ -1,0 +1,1 @@
+<link href="{{ asset('public/assets/jquery-confirm/css/jquery-confirm.css')}}" rel="stylesheet" />

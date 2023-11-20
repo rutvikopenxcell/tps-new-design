@@ -1,0 +1,1 @@
+<script src="{{ asset('public/assets/js/multiple-select.js')}}"></script>

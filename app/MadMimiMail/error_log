@@ -1,0 +1,2 @@
+[09-Nov-2017 07:37:18 UTC] PHP Warning:  require(Spyc.class.php): failed to open stream: No such file or directory in /home/rewardingsurveys/public_html/mail/MadMimi.class.php on line 26
+[09-Nov-2017 07:37:18 UTC] PHP Fatal error:  require(): Failed opening required 'Spyc.class.php' (include_path='.:/opt/alt/php56/usr/share/pear:/opt/alt/php56/usr/share/php') in /home/rewardingsurveys/public_html/mail/MadMimi.class.php on line 26
