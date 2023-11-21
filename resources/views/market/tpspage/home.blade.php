@@ -4,6 +4,11 @@
  @include('common.includefile.css.summernote')  
 @endsection
 @section('content')
+<style>
+    .text-white{
+        color:unset !important;
+    }
+</style>
 <div class="main-content-inner">
     <div class="wrapper wrapper-content animated fadeInRight">
         <div class="row">
