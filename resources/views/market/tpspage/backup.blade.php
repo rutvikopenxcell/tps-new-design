@@ -41,23 +41,23 @@
      </div>
 
      <div class="col-lg-6 col-md-6 col-sm-6 p-3 offset-lg-1">
-       <form id="tpsnewform" novalidate>
+       <form id="tpsnewform"  method="post" action="javascript:void(0)" enctype="multipart/form-data">
        <input type="hidden"  name="otpcodeget" id="otpcode">
 
        <div class="input-group flex-nowrap">
            
            <div class="form-user-input me-5" style="width:60%">
-         <input type="text" name="fname" aria-label="First name" placeholder="<?php echo $fname; ?>" class="form-control form-user-input me-5" >
+         <input type="text" name="fname" id="fname" aria-label="First name" placeholder="<?php echo $fname; ?>" class="form-control form-user-input me-5" >
         </div>
         
            <div class="form-user-input "  style="width:60%">
-         <input type="text" aria-label="Last name" name ="lname" placeholder="<?php echo $lname; ?>" class="form-control form-user-input" >
+         <input type="text" aria-label="Last name" name ="lname" id="lname" placeholder="<?php echo $lname; ?>" class="form-control form-user-input" >
          </div>
        </div>
        <div class="input-group mt-3 w-100">
            
            <div class="form-user-input" style="width:79%">
-         <input type="email" name="email" class="form-control form-user-input" placeholder="<?php echo $email; ?>" aria-label="Email id" aria-describedby="addon-wrapping" >
+         <input type="email" name="email" class="form-control form-user-input" placeholder="<?php echo $email; ?>" id="email" aria-label="Email id" aria-describedby="addon-wrapping" >
             </div>
             
          <input type="file" class="form-control" id="actual-btn" hidden>
@@ -237,28 +237,162 @@
    </div>
  </div>
  
- <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery/jquery-1.4.4.min.js"></script>
+ 
+ <!-- consand modal -->
+ 
+ <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+ <div class="modal-dialog modal-dialog-centered">
+   <div class="modal-content p-lg-3">
+     <div>
+       <h1 class="modal-title fs-5 fw-bold p-2" id="exampleModalLabel">Consent Form</h1>  
+       <hr class="modal-title-hr">    
+       <div class="">
+       <button type="button" class="btn-close float-end" data-bs-dismiss="modal" aria-label="Close" style="position: relative;
+       bottom: 70px;right: 10px;"></button>
+     </div>
+       <p class="p-2" style="font-size: 14px!important;">Before we proceed, please take out a few minutes to provide us with your information and consent which is required to be obtained in accordance with the new data privacy laws.</p>
+     </div>
+     <hr class="hr-title">
+     <div class="modal-body">
+       <p style="font-size: 14px!important;font-weight: bold;margin-bottom: 5px;">Are you a citizen of the European Union?</p>
+       <div class="form-check form-check-inline">
+         <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1" onclick="tc()">
+         <label class="form-check-label" for="inlineRadio1" style="font-size: 14px!important;" >Yes</label>
+       </div>
+       <div class="form-check form-check-inline">
+         <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2" onclick="question()">
+         <label class="form-check-label" for="inlineRadio2" style="font-size: 14px!important;">No</label>
+       </div>
+
+       <div id="t-c">
+       <div class="modal-scroll p-2 mt-2">
+       <p style="font-size: 14px;">
+         In accordance with the new data privacy laws in the European Union (GDPR), we request you to read the below form carefully and provide your consent to continue being a part of the Smartsight Community.
+
+Here at Smartsight, we take your privacy seriously and will only use your personal information to administer your account and to provide the products and services you have requested from us.
+
+You understand and agree that by choosing the “Yes” option, we may send you appropriate notifications through e-mails and SMS’s which shall form a part of services that are being offered to you.
+
+If at any point of time after the registration should you decide to withdraw your consent, then you may do so by mailing your request to us on dataprotectionofficer@smartsight.com. We would respond to your mails within three days of receiving the same.
+
+Do you wish to consent yourself to be part of Smartsight community to participate in its research offerings?
+       </p>
+     </div>
+     <div class="form-check form-check-inline mt-2">
+       <input class="form-check-input" type="radio" name="1" id="inlineRadio5" value="option1" onclick="otpView()" data-bs-dismiss="modal" aria-label="Close">
+       <label class="form-check-label" for="inlineRadio5" style="font-size: 14px!important;" >Yes, I agree</label>
+     </div>
+     <div class="form-check form-check-inline">
+       <input class="form-check-input" type="radio" name="1" id="inlineRadio6" value="option2" onclick="gdprView()" data-bs-dismiss="modal" aria-label="Close">
+       <label class="form-check-label" for="inlineRadio6" style="font-size: 14px!important;">No, I don't agree</label>
+     </div>
+   </div>
+
+   <div class="mt-4" id="second-q">
+     <p style="font-size: 14px;font-weight: bold;margin-bottom: 5px;">Are you currently in European Union?</p>
+       <div class="form-check form-check-inline">
+         <input class="form-check-input" type="radio" name="2" id="inlineRadio3" value="option1" onclick="tcc()">
+         <label class="form-check-label" for="inlineRadio3" style="font-size: 14px!important;">Yes</label>
+       </div>
+       <div class="form-check form-check-inline">
+         <input class="form-check-input" type="radio" name="2" id="inlineRadio7" value="option2" onclick="otpView()" data-bs-dismiss="modal" aria-label="Close">
+         <label class="form-check-label" for="inlineRadio7" style="font-size: 14px!important;">No</label>
+       </div>
+   </div>
+   <div id="t-cc">
+     <div class="modal-scroll p-2 mt-2">
+     <p style="font-size: 14px;">
+       In accordance with the new data privacy laws in the European Union (GDPR), we request you to read the below form carefully and provide your consent to continue being a part of the Smartsight Community.
+
+Here at Smartsight, we take your privacy seriously and will only use your personal information to administer your account and to provide the products and services you have requested from us.
+
+You understand and agree that by choosing the “Yes” option, we may send you appropriate notifications through e-mails and SMS’s which shall form a part of services that are being offered to you.
+
+If at any point of time after the registration should you decide to withdraw your consent, then you may do so by mailing your request to us on dataprotectionofficer@smartsight.com. We would respond to your mails within three days of receiving the same.
+
+Do you wish to consent yourself to be part of Smartsight community to participate in its research offerings?
+     </p>
+   </div>
+   <div class="form-check form-check-inline mt-2">
+     <input class="form-check-input" type="radio" name="1" id="inlineRadio4" value="option1" onclick="otpView()" data-bs-dismiss="modal" aria-label="Close">
+     <label class="form-check-label" for="inlineRadio4" style="font-size: 14px!important;" >Yes, I agree</label>
+   </div>
+   <div class="form-check form-check-inline">
+     <input class="form-check-input" type="radio" name="1" id="inlineRadio8" value="option2" onclick="gdprView()" data-bs-dismiss="modal" aria-label="Close">
+     <label class="form-check-label" for="inlineRadio8" style="font-size: 14px!important;">No, I don't agree</label>
+   </div>
+ </div>
+
+     </div>
+     <div class="modal-footer">
+       <p style="font-size: 13px!important;font-style: italic;">“ SmartSight is a proprietary product of Borderless Access along with all its texts trademarks, illustrations, photos, graphics, files, designs and arrangements. The contents of this website are to be used only in accordance with the terms and conditions and privacy policy appended herein.“</p>
+     </div>
+   </div>
+ </div>
+</div>
+ 
+ <!--<script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery/jquery-1.4.4.min.js"></script>-->
+ 
+ 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+
 
  <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.7/jquery.validate.min.js"></script>
 
  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
  
 
-
-
-
-
  <script>
  
  
  $("#tpsnewform").submit(function(){
      
- //alert("Submitted");
  $("#view-form").css("display", "block");
- //$("#mobilenum").attr("required", "true");
+ console.log($("#tpsnewform").valid());
 
- 
+ if($("#tpsnewform").valid()){
+    var firstcheck = document.getElementById("termscond").checked;
+    var secondcheck = document.getElementById("flexCheckDefault").checked;
+     console.log('radiobtn',$("#inlineRadio3").is(":checked"))
+
+    if(!firstcheck){
+         alert('exept terma and contidon')
+    }else if(!secondcheck){
+        alert('exept terma and contidon')
+    }
+   //  else if(!$("#inlineRadio3").is(":checked") && !$("#inlineRadio7").is(":checked")){
+   //      $('#exampleModal').modal('show'); 
+   //  }
+    else{
+          var fname = $('#fname').val();
+          var lname = $('#lname').val();
+          var email = $('#email').val();
+          var file = document.getElementById('actual-btn').files[0];
+          var formData = new FormData();
+
+         formData.append('_token','{{ csrf_token() }}');
+         formData.append('file',file);
+         formData.append('fname',fname);
+         formData.append('lname',lname);
+         formData.append('email',email);
+          $.ajax({
+              type: "POST",
+              url: "{{ url('/tpsnew/store') }}",
+              processData: false,
+              contentType: false,
+              data:formData, 
+              success: function(response){
+                 
+               }
+          });
+    }
+     // return false;
+ }
  });
+ 
+ 
+ 
+ 
  
  $("#generateotp").click(function(){
      var errorMsg = "<p style='color:green;padding-left: 16px;'><?php echo $otpsentprocessing; ?></p>";
@@ -387,19 +521,19 @@
  rules: {
  "fname": {
         required: true,
-        minlength: 5,
+        //minlength: 5,
     },
    "mobilenum": {
         required: true,
-        minlength: 5,
+       // minlength: 5,
     },
      "lname": {
         required: true,
-        minlength: 5,
+       // minlength: 5,
     },
      "email": {
         required: true,
-        minlength: 5,
+       // minlength: 5,
     },
      "inputGroupSelect02": {
         required: true,
@@ -412,14 +546,14 @@
     },
     "password": {
            required: true,
-           minlength: 8,
-           maxlength:12
+           //minlength: 8,
+           //maxlength:12
        },
     "password_confirm": {
            required: true,
-           minlength: 8,
-           maxlength:12,
-           equalTo: "#password"
+          // minlength: 8,
+          // maxlength:12,
+         //  equalTo: "#password"
        }
  },
  
@@ -468,12 +602,15 @@ $('#password_1').click(function(){
        //alert('enter')
         // $('#id_password').attr('type','text');
          document.getElementById('id_password').setAttribute('type', 'text');
-         $('#id_password').removeClass('fa-eye-slash')
-         $('#id_password').addClass('fa-eye')
+         $('#password_1').removeClass('fa-eye-slash')
+         $('#password_1').addClass('fa-eye')
 
      }else{
         //passInput.attr('type','password');
        document.getElementById('id_password').setAttribute('type', 'password');
+       $('#password_1').removeClass('fa-eye')
+       $('#password_1').addClass('fa-eye-slash')
+
      }
 })
 
@@ -486,18 +623,78 @@ $('#password_2').click(function(){
        //alert('enter')
         // $('#id_password').attr('type','text');
          document.getElementById('id_password_1').setAttribute('type', 'text');
-         $('#id_password_1').removeClass('fa-eye-slash')
-         $('#id_password_1').addClass('fa-eye')
+         $('#password_2').removeClass('fa-eye-slash')
+         $('#password_2').addClass('fa-eye')
 
      }else{
         //passInput.attr('type','password');
        document.getElementById('id_password_1').setAttribute('type', 'password');
+       $('#password_2').removeClass('fa-eye')
+       $('#password_2').addClass('fa-eye-slash')
      }
 })
 
 
 
+//main.js
 
+
+function message() {
+   document.getElementById('textArea2').style.display = 'block';
+   document.getElementById("textArea2").innerHTML= "To keep a strong new password make sure to add 8-12 characters containing at least one numeric value, one upper case letter and one special character"
+}
+
+function message1() {
+   document.getElementById('textArea2').style.display = 'none';
+}
+
+function view() {
+   document.getElementById("view-form").style.display = 'block';
+}
+
+function hide() {
+   document.getElementById("hide-btn").style.display = 'none';
+   document.getElementById("view-btn").style.display = 'block';
+}
+
+function otpView() {
+   document.getElementById("sec5-1").style.display = 'block';
+   document.getElementById("sec5").style.display = 'none';
+}
+
+function tyView() {
+   document.getElementById("sec5-2").style.display = 'block';
+   document.getElementById("sec5-1").style.display = 'none';
+}
+
+function gdprView() {
+ document.getElementById("sec5-3").style.display = 'block';
+ document.getElementById("sec5").style.display = 'none';
+}
+
+function gdprHide() {
+ document.getElementById("sec5-3").style.display = 'none';
+ document.getElementById("sec5").style.display = 'block';
+}
+
+// 
+function tc() {
+   document.getElementById("t-c").style.display='block';
+   document.getElementById("second-q").style.display='none';
+ }
+ 
+ function question() {
+   document.getElementById("second-q").style.display='block';
+   document.getElementById("t-c").style.display='none';
+ }
+ 
+ function tcc() {
+   document.getElementById("t-cc").style.display='block';
+ }
+
+ function reDirect() {
+
+ }
 
 
  </script>
